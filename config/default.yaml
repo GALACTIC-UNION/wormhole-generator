@@ -1,0 +1,49 @@
+# Wormhole Generator (WHG) — Default Configuration
+# GALACTIC-UNION / ASTRAL-GUARDIAN Domain
+
+system:
+  name: "Wormhole Generator (WHG)"
+  version: "1.0.0"
+  environment: "production"
+  log_level: "INFO"
+
+
+simulation:
+  mode: "theoretical_research"   # NOT physical generation
+  integrator: "numerical_relativity_RK4"
+  timestep_planck: 100
+  spacetime_resolution_m: 1.0e-15
+
+topology:
+  default_geometry: "morris_thorne"  # Morris-Thorne traversable wormhole
+  throat_radius_m: 1.0
+  mouth_separation_au: 1.0
+
+stability:
+  perturbation_modes: 50
+  convergence_threshold: 1.0e-12
+  eigenvalue_solver: "arnoldi"
+
+exotic_matter:
+  model: "casimir_vacuum"
+  energy_density_j_m3: -1.0e30  # Theoretical; negative energy required
+
+hazard_assessment:
+  tidal_force_limit_n_per_m: 1.0e6
+  radiation_dose_limit_gy: 0.001
+  cauchy_horizon_analysis: true
+
+
+api:
+  rest:
+    host: "0.0.0.0"
+    port: 8080
+  auth:
+    jwt_expiry_minutes: 60
+
+monitoring:
+  metrics_interval_s: 10
+  alert_channels:
+    - "astral_guardian_core"
+    - "galactic_union_council"
+    - "nexus_prime"
